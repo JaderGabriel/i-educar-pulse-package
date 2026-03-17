@@ -47,6 +47,11 @@ class PulsePackageServiceProvider extends ServiceProvider
 
         $this->ensurePulseScheduleFileExists();
 
+        $pulsePublishedDashboard = resource_path('views/vendor/pulse');
+        if (is_dir($pulsePublishedDashboard)) {
+            $this->loadViewsFrom($pulsePublishedDashboard, 'pulse');
+        }
+
         $publishedViews = resource_path('views/vendor/ieducar-pulse');
         if (is_dir($publishedViews)) {
             $this->loadViewsFrom($publishedViews, 'ieducar-pulse');

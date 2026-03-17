@@ -79,6 +79,8 @@ docker compose exec php php artisan route:clear
 docker compose exec php php artisan cache:clear
 ```
 
+**PostgreSQL 11:** a migração padrão do Laravel Pulse usa colunas geradas (`GENERATED ALWAYS AS`), suportadas apenas a partir do PostgreSQL 12. Se a migração falhar com erro de sintaxe em `key_hash`/`generated always`, use a migração corrigida do i-Educar (`database/migrations/*_create_pulse_tables.php`), que usa trigger em vez de coluna gerada e funciona no PostgreSQL 11. No projeto i-Educar, as migrations do Pulse já vêm com essa correção.
+
 O item de menu **"Monitoramento (Pulse)"** aparece como **subitem de "Configurações"**: no menu lateral clique em **Configurações** e, no menu superior, em **Monitoramento (Pulse)**.
 
 O acesso ao dashboard também pode ser feito diretamente por:
@@ -277,9 +279,12 @@ php artisan vendor:publish --tag=ieducar-pulse-dashboard --force
 php artisan vendor:publish --tag=pulse-config --force
 php artisan config:cache
 php artisan route:cache
+php artisan view:clear
 php artisan view:cache
 php artisan cache:clear
 ```
+
+**Se o dashboard aparecer com o visual padrão do Pulse (sem seções, cores e cards customizados):** a view publicada não está sendo usada ou o cache de views está antigo. Faça na ordem: (1) publicar de novo `php artisan vendor:publish --tag=ieducar-pulse-dashboard --force`, (2) limpar views `php artisan view:cache` (ou apenas `php artisan view:clear` em desenvolvimento) e (3) `php artisan cache:clear`. O pacote i-Educar Pulse registra o diretório `resources/views/vendor/pulse` no namespace `pulse` para que a view customizada seja usada; garanta que o arquivo `resources/views/vendor/pulse/dashboard.blade.php` exista no servidor (via publish ou commit no repositório).
 
 Com Docker (ajustar serviço e caminho conforme seu `docker-compose`):
 
