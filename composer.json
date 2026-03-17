@@ -1,0 +1,47 @@
+{
+    "name": "serventec/i-educar-pulse-package",
+    "description": "Monitoramento avançado do i-Educar usando Laravel Pulse, em pacote plug-and-play.",
+    "homepage": "https://github.com/serventec/ieducar-pulse-package",
+    "keywords": [
+        "ieducar",
+        "monitoramento",
+        "pulse",
+        "observabilidade",
+        "performance"
+    ],
+    "type": "library",
+    "authors": [
+        {
+            "name": "Serventec",
+            "email": "contato@serventecassessoria.com.br"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "illuminate/support": "^11.0|^12.0",
+        "laravel/pulse": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "iEducar\\Packages\\Pulse\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "iEducar\\Packages\\Pulse\\Providers\\PulsePackageServiceProvider"
+            ]
+        },
+        "ieducar": {
+            "compatible": ["2.11"]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dex/composer-plug-and-play": true
+        }
+    }
+}
+
