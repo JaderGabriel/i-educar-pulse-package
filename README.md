@@ -16,7 +16,7 @@ Pacote **plug-and-play** de monitoramento do [i-Educar](https://github.com/porta
 
 ## Requisitos
 
-- **i-Educar** 2.11
+- **i-Educar** 2.10 ou 2.11 (compatível com ambas as versões)
 - **PHP** >= 8.3
 - **Laravel Pulse** ^1.0 (instalado no projeto)
 - **PostgreSQL** (ou outro banco suportado pelo Pulse)
@@ -74,9 +74,13 @@ A página abre em **tela cheia**, com barra fixa (título, Voltar ao início, po
 
 Instalação detalhada, produção, publicação de views e troubleshooting: **[INSTALL.md](INSTALL.md)**.
 
+## Compatibilidade
+
+Compatível com **i-Educar 2.10** e **2.11** (indicado em `composer.json` → `extra.ieducar.compatible`).
+
 ## Licença
 
-GPL-2.0-or-later (compatível com o i-Educar).
+GPL-2.0-or-later (compatível com o i-Educar). Ver [LICENSE](LICENSE).
 
 ## Créditos
 

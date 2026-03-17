@@ -6,7 +6,7 @@ Monitoramento avançado do i-Educar usando **Laravel Pulse**, em pacote plug-and
 
 ## 1. Requisitos
 
-- i-Educar 2.11
+- i-Educar 2.10 ou 2.11 (compatível com ambas as versões)
 - PHP >= 8.3
 - PostgreSQL (ou outro banco suportado pelo Laravel Pulse)
 

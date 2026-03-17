@@ -34,7 +34,7 @@
             ]
         },
         "ieducar": {
-            "compatible": ["2.11"]
+            "compatible": ["2.10", "2.11"]
         }
     },
     "config": {
